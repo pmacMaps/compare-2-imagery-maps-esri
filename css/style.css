@@ -1,0 +1,23 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+header {
+    background: #000;
+    color: #fff;
+    max-height: 3em;
+    height: 3em;
+}
+
+header h1 {
+    padding: 0.15em;
+    font-size: 1.25em;
+}
+
+#map-container {
+    height: 100%;
+    width: 100%;
+    padding-top: 3em;
+}
