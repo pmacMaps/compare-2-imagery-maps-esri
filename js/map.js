@@ -2,9 +2,10 @@ require([
   'esri/Map',
   'esri/views/MapView',
   'esri/widgets/Home',
-  'esri/layers/TileLayer',
-  'esri/widgets/Swipe'],
-function(Map, MapView, Home, TileLayer, Swipe) {
+  'esri/widgets/Swipe',
+  'esri/layers/TileLayer'
+  ],
+function(Map, MapView, Home, Swipe, TileLayer) {
 
   // webmap object
   const map = new Map({});
@@ -21,6 +22,12 @@ function(Map, MapView, Home, TileLayer, Swipe) {
   const img2012 = new TileLayer({
     url: "https://gis.ccpa.net/arcgiswebadaptor/rest/services/Imagery/Imagery2012/MapServer",
     title: '2012'
+  });
+
+  // 2016 imagery > cached map service
+  const img2016 = new TileLayer({
+    url: "https://gis.ccpa.net/arcgiswebadaptor/rest/services/Imagery/Imagery2016/MapServer",
+    title: '2016'
   });
 
   // 2020 imagery > cached map service
@@ -42,16 +49,16 @@ function(Map, MapView, Home, TileLayer, Swipe) {
   map.add(refLayer);
 
   // swipe ui
-  const swipe = new Swipe({
+  const swipeWidget = new Swipe({
     view: mapView,
-    leadingLayers: [img2012],
-    trailingLayers: [img2020],
+    leadingLayers: [img2012, refLayer],
+    trailingLayers: [img2020, refLayer],
     direction: "horizontal",
     position: 50
   });
 
  // add swipe ui to app
-  mapView.ui.add(swipe);
+  mapView.ui.add(swipeWidget);
 
   const homeWidget = new Home({
     view: mapView,
@@ -60,5 +67,17 @@ function(Map, MapView, Home, TileLayer, Swipe) {
 
   // adds the home widget to the top left corner of the MapView
   mapView.ui.add(homeWidget, "top-left");
+
+  // how best to process this
+  let year1 = swipeWidget.leadingLayers.items[0].title;
+  let year2 = swipeWidget.trailingLayers.items[0].title
+
+  // placeholders for years
+  const year1UI = document.getElementById('year1display');
+  const year2UI = document.getElementById('year2display');
+
+  // set content
+  year1UI.innerHTML = year1;
+  year2UI.innerHTML = year2;
 
 });
