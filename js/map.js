@@ -2,29 +2,17 @@ require([
   'esri/Map',
   'esri/views/MapView',
   'esri/widgets/Home',
-  'esri/Basemap',
   'esri/layers/TileLayer',
   'esri/widgets/Swipe'],
-function(Map, MapView, Home, Basemap, TileLayer, Swipe) {
-
-  // basemap with no features > provides correct CRS and tile scheme
-  const basemap = new Basemap({
-    baseLayers: [
-      new TileLayer({
-        url: "https://gis.ccpa.net/arcgiswebadaptor/rest/services/Property_Assessment/No_Parcels_Basemap/MapServer"
-      })
-    ]
-  });
+function(Map, MapView, Home, TileLayer, Swipe) {
 
   // webmap object
-  const map = new Map({
-    basemap: basemap
-  });
+  const map = new Map({});
 
   // map view object
   const mapView = new MapView({
     map: map,
-    container: "map-container",
+    container: "map",
     zoom: 0,
     center: [-77.25, 40.15]
   });
@@ -41,9 +29,17 @@ function(Map, MapView, Home, Basemap, TileLayer, Swipe) {
     title: '2020'
   });
 
+  // roads & municipal boundaries
+  // https://gis.ccpa.net/arcgiswebadaptor/rest/services/Property_Assessment/Roads_Municipal_Boundaries/MapServer
+  const refLayer = new TileLayer({
+    url: "https://gis.ccpa.net/arcgiswebadaptor/rest/services/Property_Assessment/Roads_Municipal_Boundaries/MapServer",
+    title: 'Reference Data'
+  });
+
   // add layers to map
   map.add(img2012);
   map.add(img2020);
+  map.add(refLayer);
 
   // swipe ui
   const swipe = new Swipe({

@@ -16,8 +16,32 @@ header h1 {
     font-size: 1.25em;
 }
 
-#map-container {
+#map-container,
+#map {
     height: 100%;
     width: 100%;
+}
+
+#map-container {
     padding-top: 3em;
+}
+
+.year-label {
+    position: absolute;
+    top: 15;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 1.05em;
+    font-weight: bold;
+    background-color: #fff;
+    z-index: 2000;
+}
+
+#year1display {
+    left: 4vw;
+}
+
+#year2display {
+    right:2vw;
 }
