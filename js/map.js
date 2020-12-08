@@ -44,21 +44,17 @@ function(Map, MapView, Home, Swipe, TileLayer) {
   });
 
   // add layers to map
-  map.add(img2012);
-  map.add(img2020);
-  map.add(refLayer);
+  // initial state of map
+  // should let users define initial layers?
+  // call within swipe function?
+  addLayerToMap(map, img2012);
+  addLayerToMap(map, img2020);
+  addLayerToMap(map, refLayer);
 
-  // swipe ui
-  const swipeWidget = new Swipe({
-    view: mapView,
-    leadingLayers: [img2012, refLayer],
-    trailingLayers: [img2020, refLayer],
-    direction: "horizontal",
-    position: 50
-  });
+  let swipeComponent = createSwipeWidget(Swipe, mapView, img2012, img2020, refLayer);
 
- // add swipe ui to app
-  mapView.ui.add(swipeWidget);
+  // add swipe ui to app
+  mapView.ui.add(swipeComponent);
 
   const homeWidget = new Home({
     view: mapView,
@@ -69,15 +65,15 @@ function(Map, MapView, Home, Swipe, TileLayer) {
   mapView.ui.add(homeWidget, "top-left");
 
   // how best to process this
-  let year1 = swipeWidget.leadingLayers.items[0].title;
-  let year2 = swipeWidget.trailingLayers.items[0].title
+  //let year1 = swipeWidget.leadingLayers.items[0].title;
+  //let year2 = swipeWidget.trailingLayers.items[0].title
 
   // placeholders for years
   const year1UI = document.getElementById('year1display');
   const year2UI = document.getElementById('year2display');
 
   // set content
-  year1UI.innerHTML = year1;
-  year2UI.innerHTML = year2;
+  //year1UI.innerHTML = year1;
+  //year2UI.innerHTML = year2;
 
 });
