@@ -6,6 +6,10 @@ require([
   'esri/layers/TileLayer'
   ],
 function(Map, MapView, Home, Swipe, TileLayer) {
+  // DOM Elements
+  // placeholder areas for years
+  const year1UI = document.getElementById('year1display');
+  const year2UI = document.getElementById('year2display');
 
   // webmap object
   const map = new Map({});
@@ -43,19 +47,6 @@ function(Map, MapView, Home, Swipe, TileLayer) {
     title: 'Reference Data'
   });
 
-  // add layers to map
-  // initial state of map
-  // should let users define initial layers?
-  // call within swipe function?
-  addLayerToMap(map, img2012);
-  addLayerToMap(map, img2020);
-  addLayerToMap(map, refLayer);
-
-  let swipeComponent = createSwipeWidget(Swipe, mapView, img2012, img2020, refLayer);
-
-  // add swipe ui to app
-  mapView.ui.add(swipeComponent);
-
   const homeWidget = new Home({
     view: mapView,
     label: 'Initial Map Extent'
@@ -64,16 +55,20 @@ function(Map, MapView, Home, Swipe, TileLayer) {
   // adds the home widget to the top left corner of the MapView
   mapView.ui.add(homeWidget, "top-left");
 
-  // how best to process this
-  //let year1 = swipeWidget.leadingLayers.items[0].title;
-  //let year2 = swipeWidget.trailingLayers.items[0].title
+  /* Initial State of App */
+  // use pre-defined years?
+  // or let user select
+  addLayerToMap(map, img2012);
+  addLayerToMap(map, img2020);
+  addLayerToMap(map, refLayer);
 
-  // placeholders for years
-  const year1UI = document.getElementById('year1display');
-  const year2UI = document.getElementById('year2display');
+  // create Swipe Widget
+  let swipeComponent = createSwipeWidget(Swipe, mapView, img2012, img2020, refLayer);
 
-  // set content
-  //year1UI.innerHTML = year1;
-  //year2UI.innerHTML = year2;
+  // add swipe ui to app
+  mapView.ui.add(swipeComponent);
+
+  // set labels for years
+  setImageryLabels(swipeComponent, year1UI, year2UI);
 
 });

@@ -20,3 +20,13 @@ const createSwipeWidget = (swipe, view, year1Layer, year2Layer, referenceLayer) 
 
     return swipeWidget;
 }
+
+// set label for years being compared
+const setImageryLabels = (swipeWidget, uiYear1, uiYear2) => {
+    // get titles/labels
+    const year1 = swipeWidget.leadingLayers.items[0].title;
+    const year2 = swipeWidget.trailingLayers.items[0].title;
+    // set labels
+    uiYear1.innerHTML = year1;
+    uiYear2.innerHTML = year2;
+}
