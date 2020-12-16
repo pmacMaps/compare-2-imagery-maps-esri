@@ -1,3 +1,11 @@
+const getUserSelectedYears = () => {
+    const year1Select = document.getElementById('year1Select').value;
+    const year2Select = document.getElementById('year2Select').value;
+
+    //console.log(`Year 1: ${year1Select}`);
+    //console.log(`Year 2: ${year2Select}`);
+}
+
 // add layer to map
 const addLayerToMap = (webmap, layer) => {
     webmap.add(layer);

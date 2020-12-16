@@ -10,6 +10,12 @@ function(Map, MapView, Home, Swipe, TileLayer) {
   // placeholder areas for years
   const year1UI = document.getElementById('year1display');
   const year2UI = document.getElementById('year2display');
+  // select years element
+  const selectSubmitEl = document.getElementById('selectYearsSubmit');
+  // add event listenere
+  selectSubmitEl.addEventListener('click', function() {
+    getUserSelectedYears();
+  });
 
   // webmap object
   const map = new Map({});
@@ -58,17 +64,17 @@ function(Map, MapView, Home, Swipe, TileLayer) {
   /* Initial State of App */
   // use pre-defined years?
   // or let user select
-  addLayerToMap(map, img2012);
-  addLayerToMap(map, img2020);
-  addLayerToMap(map, refLayer);
+  //addLayerToMap(map, img2012);
+  //addLayerToMap(map, img2020);
+  //addLayerToMap(map, refLayer);
 
   // create Swipe Widget
-  let swipeComponent = createSwipeWidget(Swipe, mapView, img2012, img2020, refLayer);
+  //let swipeComponent = createSwipeWidget(Swipe, mapView, img2012, img2020, refLayer);
 
   // add swipe ui to app
-  mapView.ui.add(swipeComponent);
+  //mapView.ui.add(swipeComponent);
 
   // set labels for years
-  setImageryLabels(swipeComponent, year1UI, year2UI);
+  //setImageryLabels(swipeComponent, year1UI, year2UI);
 
 });
