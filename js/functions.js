@@ -1,9 +1,48 @@
-const getUserSelectedYears = () => {
+const getUserSelectedYears = (webmap, webmapView, yearsArray, referenceLayer, swipe) => {
     const year1Select = document.getElementById('year1Select').value;
     const year2Select = document.getElementById('year2Select').value;
+    let year1;
+    let year2;
 
-    //console.log(`Year 1: ${year1Select}`);
-    //console.log(`Year 2: ${year2Select}`);
+    switch(year1Select) {
+        case '2012':
+            addLayerToMap(webmap, yearsArray[0]);
+            year1 = yearsArray[0];
+            break;
+        case '2016':
+            addLayerToMap(webmap, yearsArray[1]);
+            year1 = yearsArray[1];
+            break;
+        case '2020':
+            addLayerToMap(webmap, yearsArray[2]);
+            year1 = yearsArray[2];
+            break;
+        default:
+            console.warn('no appropriate year1 selected');
+    }
+
+    switch(year2Select) {
+        case '2012':
+            addLayerToMap(webmap, yearsArray[0]);
+            year2 = yearsArray[0];
+            break;
+        case '2016':
+            addLayerToMap(webmap, yearsArray[1]);
+            year2 = yearsArray[1];
+            break;
+        case '2020':
+            addLayerToMap(webmap, yearsArray[2]);
+            year2 = yearsArray[2];
+            break;
+        default:
+            console.warn('no appropriate year2 selected');
+    }
+
+    addLayerToMap(webmap, referenceLayer);
+
+    const swipeComponent = createSwipeWidget(swipe, webmapView, year1, year2, referenceLayer);
+
+    webmapView.ui.add(swipeComponent);
 }
 
 // add layer to map

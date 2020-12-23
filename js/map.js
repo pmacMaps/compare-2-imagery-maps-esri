@@ -14,7 +14,7 @@ function(Map, MapView, Home, Swipe, TileLayer) {
   const selectSubmitEl = document.getElementById('selectYearsSubmit');
   // add event listenere
   selectSubmitEl.addEventListener('click', function() {
-    getUserSelectedYears();
+    getUserSelectedYears(map, mapView, arrayOfYears, refLayer, Swipe);
   });
 
   // webmap object
@@ -52,6 +52,8 @@ function(Map, MapView, Home, Swipe, TileLayer) {
     url: "https://gis.ccpa.net/arcgiswebadaptor/rest/services/Property_Assessment/Roads_Municipal_Boundaries/MapServer",
     title: 'Reference Data'
   });
+
+  const arrayOfYears = [img2012, img2016, img2020];
 
   const homeWidget = new Home({
     view: mapView,
