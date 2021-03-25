@@ -1,5 +1,18 @@
 // gets years selected by user, and then constructs Swipe Widget
 const getUserSelectedYears = (webmap, webmapView, yearsArray, referenceLayer, swipe) => {
+    // remove previous layers
+    removeLayerFromMap(webmap, referenceLayer)
+    //
+    yearsArray.forEach(element => removeLayerFromMap(webmap, element));
+    // view.ui.remove
+    const swipeWidgetFind = webmapView.ui.find('testSwipeWidget');
+
+    if (swipeWidgetFind !== null) {
+        webmapView.ui.remove('testSwipeWidget');
+        //webmapView.ui.destroy('testSwipeWidget');
+    }
+    //console.log(swipeWidgetFind);
+
     // year 1 selected by user
     const year1Select = document.getElementById('year1Select').value;
     // year 2 selected by user
@@ -68,7 +81,8 @@ const createSwipeWidget = (swipe, view, year1Layer, year2Layer, referenceLayer) 
         leadingLayers: [year1Layer, referenceLayer],
         trailingLayers: [year2Layer, referenceLayer],
         direction: "horizontal",
-        position: 50
+        position: 50,
+        id: 'testSwipeWidget'
     });
 
     return swipeWidget;
