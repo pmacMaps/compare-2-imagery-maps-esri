@@ -1,6 +1,10 @@
+// gets years selected by user, and then constructs Swipe Widget
 const getUserSelectedYears = (webmap, webmapView, yearsArray, referenceLayer, swipe) => {
+    // year 1 selected by user
     const year1Select = document.getElementById('year1Select').value;
+    // year 2 selected by user
     const year2Select = document.getElementById('year2Select').value;
+    // map service for swipe app
     let year1;
     let year2;
 
@@ -38,10 +42,12 @@ const getUserSelectedYears = (webmap, webmapView, yearsArray, referenceLayer, sw
             console.warn('no appropriate year2 selected');
     }
 
+    // add reference (roads/municipal boundaries) to web map
     addLayerToMap(webmap, referenceLayer);
 
+    // construct swipe widget
     const swipeComponent = createSwipeWidget(swipe, webmapView, year1, year2, referenceLayer);
-
+    // add swipe widget to web map
     webmapView.ui.add(swipeComponent);
 }
 
@@ -69,11 +75,11 @@ const createSwipeWidget = (swipe, view, year1Layer, year2Layer, referenceLayer) 
 }
 
 // set label for years being compared
-const setImageryLabels = (swipeWidget, uiYear1, uiYear2) => {
+const setImageryLabels = (uiYear1, uiYear2) => {
     // get titles/labels
-    const year1 = swipeWidget.leadingLayers.items[0].title;
-    const year2 = swipeWidget.trailingLayers.items[0].title;
+    const year1Select = document.getElementById('year1Select').value;
+    const year2Select = document.getElementById('year2Select').value;
     // set labels
-    uiYear1.innerHTML = year1;
-    uiYear2.innerHTML = year2;
+    uiYear1.innerHTML = year1Select;
+    uiYear2.innerHTML = year2Select;
 }

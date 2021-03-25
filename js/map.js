@@ -7,7 +7,7 @@ require([
   ],
 function(Map, MapView, Home, Swipe, TileLayer) {
   // DOM Elements
-  // placeholder areas for years
+  // placeholder areas for years display for users
   const year1UI = document.getElementById('year1display');
   const year2UI = document.getElementById('year2display');
   // select years element
@@ -15,6 +15,7 @@ function(Map, MapView, Home, Swipe, TileLayer) {
   // add event listenere
   selectSubmitEl.addEventListener('click', function() {
     getUserSelectedYears(map, mapView, arrayOfYears, refLayer, Swipe);
+    setImageryLabels(year1UI, year2UI);
   });
 
   // webmap object
