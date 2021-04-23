@@ -34,8 +34,8 @@ input[type="checkbox"] {
     font-size: 0.8em;
 }
 
-  /* Colors */
-  body {
+/* Colors */
+body {
     color: #333;
 }
 
@@ -111,7 +111,7 @@ div.modal button.btn {
 
 .year-label {
     position: absolute;
-    top: 15;
+    bottom: 20px;
     display: inline-block;
     margin-top: 10px;
     padding: 5px;
@@ -122,15 +122,15 @@ div.modal button.btn {
 }
 
 #year1display {
-    left: 4vw;
+    left: 2vw;
 }
 
 #year2display {
     right:2vw;
 }
 
-  /* Media Queries */
-  @media screen and (max-width: 576px) {
+/* Media Queries */
+@media screen and (max-width: 576px) {
 
     body {
       padding-top: 84px;
@@ -147,4 +147,3 @@ div.modal button.btn {
       vertical-align: unset;
     }
 }
-

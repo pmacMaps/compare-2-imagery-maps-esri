@@ -12,11 +12,8 @@
   <meta property="og:url" content="">
   <meta property="og:image" content="">
 
-  <!--
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  -->
-  <!-- Place favicon.ico in the root directory -->
+  <link rel="icon" href="https://gis.ccpa.net/gis_images/favicon.ico">
+  <link type="image/ico" rel="shortcut icon" href="https://gis.ccpa.net/gis_images/favicon.ico">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -58,7 +55,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="selectModalLabel">Select Year to Compare</h5>
+          <h5 class="modal-title" id="selectModalLabel">Select Years to Compare</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -67,6 +64,9 @@
           <p>Select two years to compare:</p>
           <span>Year 1:</span>
           <select name="year1" id="year1Select">
+            <option value="1998">1998</option>
+            <option value="2003">2003</option>
+            <option value="2008">2008</option>
             <option value="2012">2012</option>
             <option value="2016">2016</option>
             <option value="2020">2020</option>
@@ -74,6 +74,9 @@
         <br /><br />
         <span>Year 2:</span>
           <select name="year2" id="year2Select">
+            <option value="1998">1998</option>
+            <option value="2003">2003</option>
+            <option value="2008">2008</option>
             <option value="2012">2012</option>
             <option value="2016">2016</option>
             <option value="2020">2020</option>
@@ -98,8 +101,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <p>Here is some text.</p>
-          <p>Visit <a target="_blank" rel="noopener" href="https://www.ccpa.net/BusinessDirectoryii.aspx?lngBusinessCategoryID=35">this website</a> for municipal contact information.</p>
+          <p>Demo map for using "Slide Widget" to compare two differnt base layers (i.e., imagery or land use).</p>
           <p>Map developed by <a href="https://www.ccpa.net/116/Geographic-Information-Systems" target="_blank" rel="noopener"><strong>Cumberland County GIS</strong></a>.</p>
           <p>Vist our <a href="http://ccpa.maps.arcgis.com/home/gallery.html" target="_blank" rel="noopener">Map Gallery!</a></p>
         </div>
@@ -143,6 +145,10 @@
   <!-- App Related -->
   <script src="js/functions.js"></script>
   <script src="js/map.js"></script>
+  <script>
+    $( document ).ready(function() {
+      $('#selectModal').modal('show');
+    });
+  </script>
 </body>
-
 </html>
