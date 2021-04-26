@@ -15,7 +15,7 @@ require([
     // add event listenere
     selectSubmitEl.addEventListener('click', function() {
       getUserSelectedYears(map, mapView, arrayOfYears, refLayer, Swipe);
-      setImageryLabels(year1UI, year2UI);
+      setImageryLabels(year1UI, year2UI,'.year-label');
       $('#selectModal').modal('hide');
     });
 

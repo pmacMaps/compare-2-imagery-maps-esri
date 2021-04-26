@@ -111,11 +111,23 @@ const createSwipeWidget = (swipe, view, year1Layer, year2Layer, referenceLayer) 
 }
 
 // set label for years being compared
-const setImageryLabels = (uiYear1, uiYear2) => {
+const setImageryLabels = (uiYear1, uiYear2, labelClass) => {
     // get titles/labels
     const year1Select = document.getElementById('year1Select').value;
     const year2Select = document.getElementById('year2Select').value;
     // set labels
     uiYear1.innerHTML = year1Select;
     uiYear2.innerHTML = year2Select;
+    // display labels
+    displayImageryLabels(labelClass);
+}
+
+// display imagery labels
+const displayImageryLabels = (labelClass) => {
+    // access dom elements
+    const elements = document.querySelectorAll(labelClass);
+    // display labels
+    elements.forEach(element => {
+        element.style.display = 'inline-block';
+    });
 }
