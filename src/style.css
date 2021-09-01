@@ -1,0 +1,150 @@
+/* General */
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+html,
+body,
+#container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+ul {
+    list-style-type: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin: 0;
+}
+
+.text-small {
+    font-size: 0.8em;
+}
+
+/* Colors */
+body {
+    color: #333;
+}
+
+.white {
+    color: #fff;
+}
+
+/* blue theme color */
+header,
+div.modal button.btn {
+    background-color: #196fa6;
+}
+
+div.modal button.btn:hover {
+    background-color: #000;
+}
+
+button.close span {
+    transition: color 0.125s ease-in-out;
+}
+
+button.close span:hover {
+    color: #888;
+}
+
+/* navigation bar */
+nav ul.dropdown.dropdown-menu {
+    right: 10px;
+    left: inherit;
+}
+
+nav button.nav-link.dropdown-toggle {
+    background-color: #000;
+    border-color: #fff;
+    border: none;
+    transition: background-color 0.125s ease-in-out, color 0.125s ease-in-out;
+}
+
+nav button.nav-link.dropdown-toggle:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+nav button.dropdown-item {
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    border-radius: 0;
+}
+
+nav button.dropdown-item:hover {
+    border-bottom-color: #000;
+    border-top-color: #000;
+}
+
+/* Modals */
+div.modal button.close {
+    opacity: 1;
+}
+
+div.modal button.btn {
+    border-color: #000;
+}
+
+#map-container,
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+#map-container {
+    padding-top: 64px;
+}
+
+.year-label {
+    position: absolute;
+    bottom: 20px;
+    /*display: inline-block;*/
+    display: none;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 1.05em;
+    font-weight: bold;
+    background-color: #fff;
+    z-index: 2000;
+}
+
+#year1display {
+    left: 2vw;
+}
+
+#year2display {
+    right:2vw;
+}
+
+/* Media Queries */
+@media screen and (max-width: 576px) {
+
+    body {
+      padding-top: 25px;
+    }
+
+    h1.navbar-brand {
+      font-size: 1.05em;
+      max-width: 200px;
+      word-break: break-word;
+      white-space: normal;
+    }
+
+    header > div img {
+      vertical-align: unset;
+    }
+}

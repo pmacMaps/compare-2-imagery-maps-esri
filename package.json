@@ -1,0 +1,33 @@
+{
+  "name": "compare-2-imagery-maps-esri",
+  "version": "1.0.0",
+  "description": "This repository contains sample code for developing an interactive \"swipe\" map app that allows users to compare two basemaps.  It was developed with orthoimagery or land use datasets in mind.",
+  "main": "index.js",
+  "source": "src/index.html",
+  "browserlist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pmacMaps/compare-2-imagery-maps-esri.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pmacMaps/compare-2-imagery-maps-esri/issues"
+  },
+  "homepage": "https://github.com/pmacMaps/compare-2-imagery-maps-esri#readme",
+  "dependencies": {
+    "@arcgis/core": "^4.20.2",
+    "@popperjs/core": "^2.9.3",
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-rc.0"
+  }
+}
