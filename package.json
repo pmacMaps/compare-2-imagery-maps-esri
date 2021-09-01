@@ -22,12 +22,12 @@
   "homepage": "https://github.com/pmacMaps/compare-2-imagery-maps-esri#readme",
   "dependencies": {
     "@arcgis/core": "^4.20.2",
-    "@popperjs/core": "^2.9.3",
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
+    "@parcel/transformer-image": "^2.0.0-rc.0",
     "parcel": "^2.0.0-rc.0"
   }
 }
