@@ -1,4 +1,4 @@
-import TileLayer from "@arcgis/core/Layers";
+import TileLayer from "@arcgis/core/layers/TileLayer";
 
 // 1998 imagery > cached map service
 const img1998 = new TileLayer({
@@ -38,7 +38,10 @@ const img1998 = new TileLayer({
 
   // roads & municipal boundaries
   // https://gis.ccpa.net/arcgiswebadaptor/rest/services/Property_Assessment/Roads_Municipal_Boundaries/MapServer
-  const refLayer = new TileLayer({
+  export const refLayer = new TileLayer({
     url: "https://gis.ccpa.net/arcgiswebadaptor/rest/services/Property_Assessment/Roads_Municipal_Boundaries/MapServer",
     title: 'Reference Data'
   });
+
+  // list of imagery years
+  export const arrayOfYears = [img1998, img2003, img2008, img2012, img2016, img2020];
